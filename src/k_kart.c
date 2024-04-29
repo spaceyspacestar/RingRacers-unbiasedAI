@@ -3636,8 +3636,8 @@ fixed_t K_GetKartSpeed(const player_t *player, boolean doboostpower, boolean dor
 
 			if (player->bot && player->botvars.rival)
 			{
-				// +5% top speed for the rival
-				finalspeed = FixedMul(finalspeed, 11*FRACUNIT/5);
+				//+5% top speed for the rival (11*FRACUNIT/10)
+				finalspeed = FixedMul(finalspeed, 21*FRACUNIT/20);
 			}
 		}
 	}
