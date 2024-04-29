@@ -3636,8 +3636,8 @@ fixed_t K_GetKartSpeed(const player_t *player, boolean doboostpower, boolean dor
 
 			if (player->bot && player->botvars.rival)
 			{
-				// +10% top speed for the rival
-				finalspeed = FixedMul(finalspeed, 11*FRACUNIT/10);
+				// +5% top speed for the rival
+				finalspeed = FixedMul(finalspeed, 11*FRACUNIT/5);
 			}
 		}
 	}
@@ -10272,8 +10272,8 @@ INT32 K_GetKartRingPower(const player_t *player, boolean boosted)
 
 		if (player->botvars.rival == true)
 		{
-			// x2.0 for Rival
-			ringPower = FixedMul(ringPower, 2*FRACUNIT);
+			// x1.0 for Rival
+			ringPower = FixedMul(ringPower, 1*FRACUNIT);
 		}
 	}
 
