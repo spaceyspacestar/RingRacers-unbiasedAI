@@ -10272,8 +10272,8 @@ INT32 K_GetKartRingPower(const player_t *player, boolean boosted)
 
 		if (player->botvars.rival == true)
 		{
-			// x2.0 for Rival
-			ringPower = FixedMul(ringPower, 2*FRACUNIT);
+			// x1.5 for Rival
+			ringPower = FixedMul(ringPower, 3*FRACUNIT/2);
 		}
 	}
 
