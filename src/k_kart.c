@@ -1487,11 +1487,14 @@ static boolean K_TryDraft(player_t *player, mobj_t *dest, fixed_t minDist, fixed
 		fixed_t add = (FRACUNIT/200) + ((9 - player->kartspeed) * ((3*FRACUNIT)/1600));;
 		player->draftpower += add;
 
+		
+		/* The rival is already cheating, but lets make it so it's less obvious lol
 		if (player->bot && player->botvars.rival)
 		{
 			// Double speed for the rival!
 			player->draftpower += add;
 		}
+		*/
 
 		if (gametyperules & GTR_CLOSERPLAYERS)
 		{
@@ -3636,8 +3639,10 @@ fixed_t K_GetKartSpeed(const player_t *player, boolean doboostpower, boolean dor
 
 			if (player->bot && player->botvars.rival)
 			{
-				//+5% top speed for the rival (11*FRACUNIT/10)
-				finalspeed = FixedMul(finalspeed, 21*FRACUNIT/20);
+				//+5% top speed boost if you're first
+				if (player->position == 1) {
+					finalspeed = FixedMul(finalspeed, 21*FRACUNIT/20);
+				}
 			}
 		}
 	}
@@ -4274,7 +4279,6 @@ void K_StumblePlayer(player_t *player)
 
 	// and then modulate momz like that...
 	player->mo->momz = K_TumbleZ(player->mo, player->tumbleHeight * FRACUNIT);
-
 	P_SetPlayerMobjState(player->mo, S_KART_SPINOUT);
 
 	// Reset slope.
@@ -4340,7 +4344,6 @@ boolean K_CheckStumble(player_t *player, angle_t oldPitch, angle_t oldRoll, bool
 
 	// Oh jeez, you landed on your side.
 	// You get to tumble.
-
 	K_StumblePlayer(player);
 	return true;
 }
@@ -10273,7 +10276,7 @@ INT32 K_GetKartRingPower(const player_t *player, boolean boosted)
 		if (player->botvars.rival == true)
 		{
 			// x1.5 for Rival
-			ringPower = FixedMul(ringPower, 3*FRACUNIT/2);
+			ringPower = FixedMul(ringPower, 3*FRACUNIT/6);
 		}
 	}
 
