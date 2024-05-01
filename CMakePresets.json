@@ -15,7 +15,7 @@
 			"cacheVariables": {
 				"CMAKE_C_FLAGS_RELWITHDEBINFO": "-O3 -g -DNDEBUG",
 				"CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O3 -g -DNDEBUG",
-				"SRB2_CONFIG_DEV_BUILD": "OFF",
+				"SRB2_CONFIG_DEV_BUILD": "ON",
 				"CMAKE_BUILD_TYPE": "RelWithDebInfo"
 			}
 		},
