@@ -512,7 +512,7 @@ UINT32 K_GetItemRouletteDistance(const player_t *player, UINT8 numPlayers)
 	pdis = K_ScaleItemDistance(pdis, numPlayers);
 
 	//luck based my ass
-	if (player->bot && player->botvars.rival)
+	if (player->bot && player->botvars.rival && player->position < 4)
 	{
 		// Rival has better odds :)
 		pdis = FixedMul(pdis, FRANTIC_ITEM_SCALE);
